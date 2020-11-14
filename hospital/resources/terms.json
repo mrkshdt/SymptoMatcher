@@ -5,11 +5,11 @@
          "alt_names": [],
          "associated_terms":[
             "Herz",
-            "Oberkörper",
+            "Oberkoerper",
             "Brust",
             "Brustschmerz",
             "linker Arm",
-            "Rückenschmerz",
+            "Rueckenschmerz",
             "Atemnot",
             "Herzrasen"
          ]
@@ -26,7 +26,7 @@
          "name": "Allgemeinmedizin",
          "alt_names": ["Hausarzt"],
          "associated_terms":[
-            "Erkältung",
+            "Erkaeltung",
             "Angst",
             "Atemnot",
             "Bauchschmerzen",
@@ -41,11 +41,11 @@
             "Husten",
             "Juckreiz",
             "Magenschmerzen",
-            "Müdigkeit",
-            "Rückenschmerzen",
+            "Muedigkeit",
+            "Rueckenschmerzen",
             "Schwindel",
             "Schulterschmerzen",
-            "Sprachstörung",
+            "Sprachstoerung",
             "Zecke",
             "Warze"
          ]  
@@ -63,7 +63,7 @@
          ]
       },
       {
-      "name": "Gynäkologie",
+      "name": "Gynaekologie",
          "alt_names": ["Geburtshilfe"],
          "associated_terms":[
             "Schwangerschaft"

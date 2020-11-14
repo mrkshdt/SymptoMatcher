@@ -1,6 +1,9 @@
 from hospital import app
-from flask import render_template
+from flask import render_template, request
 from. import data_processing
+
+import time
+import json
 
 @app.route("/")
 def base():
@@ -8,7 +11,7 @@ def base():
 	return dict_words
 
 @app.route("/api/routing")
-def get_plot_data():
+def get_route():
     """
     :query_parameter user_string: The user's description of his condition
     """
@@ -16,11 +19,21 @@ def get_plot_data():
     user_string = request.args.get('user_string')
 
     # Get a ranking of appropriate fachbereiche
-    ranking, fb_matching_details = data_processing.string_to_fb(user_string)
+    ranking, fb_matching_details, mentioned_bereiche = data_processing.string_to_fb(user_string)
 
     end_total = time.time()
     print("Total time until response: ", end_total - start_total)
-    return {
+    print(type(ranking[0][1]))
+    print(type(fb_matching_details['Kardiologie'][0]['score']))
+    
+    
+    
+    
+    tmp_dict = {
         'ranking': ranking,
-        'matching_details': fb_matching_details
+        #'matching_details': fb_matching_details,
+        'mentioned_bereiche': mentioned_bereiche
     }
+
+
+    return fb_matching_details['Kardiologie'] #json.dumps(tmp_dict) 
