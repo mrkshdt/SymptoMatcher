@@ -7,9 +7,9 @@
             "Herz",
             "Oberkoerper",
             "Brust",
-            "Brustschmerz",
+            "Brust",
             "linker Arm",
-            "Rueckenschmerz",
+            "Ruecken",
             "Atemnot",
             "Herzrasen"
          ]
@@ -29,22 +29,22 @@
             "Erkaeltung",
             "Angst",
             "Atemnot",
-            "Bauchschmerzen",
+            "Bauch",
             "Blase am Fuß",
             "Durchfall",
             "Fieber",
-            "Gelenkschmerzen",
-            "Gliederschmerzen",
+            "Gelenk",
+            "Glieder",
             "Schnupfen",
-            "Kopfschmerzen",
+            "Kopf",
             "Hautausschlag",
             "Husten",
             "Juckreiz",
-            "Magenschmerzen",
+            "Magen",
             "Muedigkeit",
-            "Rueckenschmerzen",
+            "Ruecken",
             "Schwindel",
-            "Schulterschmerzen",
+            "Schulter",
             "Sprachstoerung",
             "Zecke",
             "Warze"
@@ -54,12 +54,15 @@
          "name": "HNO",
          "alt_names": ["Hals-Nasen-Ohrenarzt"],
          "associated_terms":[
-            "Halsschmerzen",
+            "Hals",
             "Schnupfen",
-            "Kopfschmerzen",
+            "Kopf",
             "Husten",
-            "Ohrenschmerzen",
-            "Schwindel"
+            "Ohren",
+            "Schwindel",
+            "Hals",
+            "Nase",
+            "Ohr"
          ]
       },
       {
@@ -76,7 +79,7 @@
             "Prostata",
             "Niere",
             "Nierenstein",
-            "Nierenschmerzen",
+            "Nieren",
             "Brennen beim Wasserlassen"
          ]  
       }
