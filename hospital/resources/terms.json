@@ -1,0 +1,84 @@
+{
+   "Fachbereiche":[
+      {
+         "name": "Kardiologie",
+         "alt_names": [],
+         "associated_terms":[
+            "Herz",
+            "Oberkörper",
+            "Brust",
+            "Brustschmerz",
+            "linker Arm",
+            "Rückenschmerz",
+            "Atemnot",
+            "Herzrasen"
+         ]
+      },
+      {
+         "name": "Onkologie",
+         "alt_names": [],
+         "associated_terms":[
+            "Krebs",
+            "Tumor"
+         ]
+      },
+      {
+         "name": "Allgemeinmedizin",
+         "alt_names": ["Hausarzt"],
+         "associated_terms":[
+            "Erkältung",
+            "Angst",
+            "Atemnot",
+            "Bauchschmerzen",
+            "Blase am Fuß",
+            "Durchfall",
+            "Fieber",
+            "Gelenkschmerzen",
+            "Gliederschmerzen",
+            "Schnupfen",
+            "Kopfschmerzen",
+            "Hautausschlag",
+            "Husten",
+            "Juckreiz",
+            "Magenschmerzen",
+            "Müdigkeit",
+            "Rückenschmerzen",
+            "Schwindel",
+            "Schulterschmerzen",
+            "Sprachstörung",
+            "Zecke",
+            "Warze"
+         ]  
+      },
+      {
+         "name": "HNO",
+         "alt_names": ["Hals-Nasen-Ohrenarzt"],
+         "associated_terms":[
+            "Halsschmerzen",
+            "Schnupfen",
+            "Kopfschmerzen",
+            "Husten",
+            "Ohrenschmerzen",
+            "Schwindel"
+         ]
+      },
+      {
+      "name": "Gynäkologie",
+         "alt_names": ["Geburtshilfe"],
+         "associated_terms":[
+            "Schwangerschaft"
+         ]  
+      },
+      {
+         "name": "Urologie",
+         "alt_names": [],
+         "associated_terms":[
+            "Prostata",
+            "Niere",
+            "Nierenstein",
+            "Nierenschmerzen",
+            "Brennen beim Wasserlassen"
+         ]  
+      }
+   ]
+}
