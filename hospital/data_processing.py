@@ -3,6 +3,8 @@ import string
 import nltk
 import json
 import fasttext
+import difflib
+import spacy
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 MODEL_PATH = "resources/wiki.de.bin"
@@ -12,17 +14,43 @@ fastText_model = None
 german_stop_words = stopwords.words('german')
 
 def normalize(user_string):
-    
+    """
+    lower input string and normalize it by deleting stop words and punctuation; 
+    Delete all adjectives, verbs and adverbs to increase data quality
+    """
+
+    sol=[]
     user_string = user_string.lower()
     clean_rf = re.sub(r"""[-,.;@#?!&$]+\ *"""," ",user_string, flags=re.VERBOSE)
     tokens = nltk.word_tokenize(clean_rf)
-    sol = [w for w in tokens if not w in german_stop_words]
+    tmp_sol = ' '.join([w for w in tokens if not w in german_stop_words])
+    new = nlp(tmp_sol)
     
-    ### Extract specific german words? (Verbs, Adjectives,...)
-    #new = nlp(sol)
-    #print("Verbs:", [token.lemma_ for token in new if token.pos_ == "VERB"])
-    
+    for i in new:
+        if i.pos_ == "ADJ" or i.pos_ == "VERB" or i.pos_ == "ADV":
+            pass
+        else:
+            sol.append(i)
+
+
+
     return sol
+
+def difflib_similarity(tokens,symptoms):
+    """
+    Compare input words with symptom array and give back a value between 0 and 100; 100 being the highest similarity;
+    """
+    dict_words = {}
+    for i in tokens:
+        tmp = []
+        for j in symptoms:
+            seq = difflib.SequenceMatcher(None,str(i),str(j))
+            d = seq.ratio()*100
+            tmp.append([j,d])
+        dict_words[i]=tmp
+    
+    return dict_words     
+
 
 def similarity(word1, word2):
     """
