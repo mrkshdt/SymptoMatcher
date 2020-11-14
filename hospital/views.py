@@ -3,4 +3,5 @@ from flask import render_template
 
 @app.route("/")
 def base():
-	return None
+	dict_words = {}
+	return dict_words
