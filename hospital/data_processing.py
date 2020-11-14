@@ -7,7 +7,7 @@ import difflib
 import spacy
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
-MODEL_PATH = "resources/wiki.de.bin"
+MODEL_PATH = "../../wiki.de.bin"
 
 # Keep the fasttext model as a global, cached variable 
 fastText_model = None
@@ -18,7 +18,8 @@ def normalize(user_string):
     lower input string and normalize it by deleting stop words and punctuation; 
     Delete all adjectives, verbs and adverbs to increase data quality
     """
-
+    nlp = spacy.load('de_core_news_sm')
+    
     sol=[]
     user_string = user_string.lower()
     clean_rf = re.sub(r"""[-,.;@#?!&$]+\ *"""," ",user_string, flags=re.VERBOSE)
@@ -31,8 +32,6 @@ def normalize(user_string):
             pass
         else:
             sol.append(i)
-
-
 
     return sol
 
