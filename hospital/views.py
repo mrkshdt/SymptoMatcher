@@ -31,9 +31,10 @@ def get_route():
     
     tmp_dict = {
         'ranking': ranking,
-        #'matching_details': fb_matching_details,
+        'matching_details': fb_matching_details,
         'mentioned_bereiche': mentioned_bereiche
     }
 
+    #print(fb_matching_details['Kardiologie'][0])
 
-    return fb_matching_details['Kardiologie'] #json.dumps(tmp_dict) 
+    return json.dumps(tmp_dict) 

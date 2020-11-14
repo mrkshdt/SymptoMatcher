@@ -83,7 +83,7 @@ def string_to_fb(user_string):
     # fb_matching_details maps for every fachbereich which user token has been detected as relevant by which fb_term 
     fb_matching_details = {}
     mentioned_bereiche = set()
-    thresh = 0.3
+    thresh = 0.59
     # Get the matches between tokens and relevant terms of each fachbereich
     for bereich in gazetteers['Fachbereiche']:
         fb_matched_terms[bereich['name']] = set()
@@ -92,6 +92,7 @@ def string_to_fb(user_string):
 
 
         for token in user_tokens:
+            token = str(token)
 
             # Check whether the name of the fachbereich has been mentioned in which case it should definitely be displayed as an option to the user
             if similarity(token, bereich['name']) > thresh:
@@ -106,7 +107,7 @@ def string_to_fb(user_string):
 
                 if similarity(token, fb_term) > thresh:
                     fb_matched_terms[bereich['name']].add(token)
-                    fb_matching_details[bereich['name']].append({'user_token':token, 'fb_term':fb_term, 'score':similarity(token, fb_term)})
+                    fb_matching_details[bereich['name']].append({'user_token':token, 'fb_term':fb_term, 'score':float(similarity(token, fb_term))})
         # In order to serialize the data later on we have to convert from set to list again
         fb_matched_terms[bereich['name']] = list(fb_matched_terms[bereich['name']])
 
@@ -114,12 +115,10 @@ def string_to_fb(user_string):
 
 
     ranking = get_fb_ranking(fb_matched_terms)
-    
-    #print(fb_matching_details)
-    for i in fb_matching_details:
-        print(fb_matching_details[i],'\n')
 
-    print(fb_matching_details)
+    for i in fb_matching_details:
+        print(fb_matching_details[i])
+    
 
     return ranking, fb_matching_details, mentioned_bereiche
 
