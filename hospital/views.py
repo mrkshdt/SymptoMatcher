@@ -23,18 +23,9 @@ def get_route():
 
     end_total = time.time()
     print("Total time until response: ", end_total - start_total)
-    print(type(ranking[0][1]))
-    print(type(fb_matching_details['Kardiologie'][0]['score']))
-    
-    
-    
-    
-    tmp_dict = {
+
+    return json.dumps({
         'ranking': ranking,
         'matching_details': fb_matching_details,
         'mentioned_bereiche': mentioned_bereiche
-    }
-
-    #print(fb_matching_details['Kardiologie'][0])
-
-    return json.dumps(tmp_dict) 
+    })
