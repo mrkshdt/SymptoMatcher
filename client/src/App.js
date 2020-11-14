@@ -1,8 +1,9 @@
 import logo from './logo.svg';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import AppNavbar from './components/AppNavbar'
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from "react-router-dom";
+import NavigationPlotter from './components/NavigationPlotter'
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Router>
         <AppNavbar />
         <div className="page-content">
-          Das ist deine neue, tolle Webseite!
+          <NavigationPlotter />
           </div>
       </Router>
     </div>
