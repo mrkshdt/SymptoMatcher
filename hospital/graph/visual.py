@@ -5,6 +5,7 @@ Created on Sat Nov 14 14:16:59 2020
 @author: Paula
 """
 
+import time
 import networkx as nx
 import matplotlib.pyplot as plt
 
@@ -60,11 +61,11 @@ def path(ziel):
                 y_green.append(y1)
         fig = plt.figure(i)
         if level == 0:
-            img = plt.imread('./hospital/graph/EG.png')
+            img = plt.imread(os.path.join('.', 'hospital', 'graph', 'EG.png'))
         elif level == 1:
-            img = plt.imread('./hospital/graph/1OG.png')
+            img = plt.imread(os.path.join('.', 'hospital', 'graph', '1OG.png'))
         else:
-            img = plt.imread('./hospital/graph/2OG.png')
+            img = plt.imread(os.path.join('.', 'hospital', 'graph', '2OG.png'))
         #plt.scatter(x,y,zorder=1)
         plt.plot(x_blue,y_blue,'b-o')
         plt.plot(x_green,y_green,'go')
@@ -86,10 +87,8 @@ def path(ziel):
     imageio.mimsave('route.gif', images, duration=5)
 
 
-    os.rename("./route.gif","./client/src/assets/route.gif")
+    final_route_path = os.path.join(".", "client", "src", "assets", "route.gif")
+    if os.path.isfile(final_route_path):
+        os.remove(final_route_path)
 
-
-
-
-
-
+    os.rename(os.path.join(".", "route.gif"), final_route_path)
