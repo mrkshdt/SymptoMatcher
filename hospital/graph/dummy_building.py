@@ -7,7 +7,7 @@ Created on Fri Nov 13 21:44:44 2020
 
 import networkx as nx
 import matplotlib.pyplot as plt
-import osmnx as ox
+#import osmnx as ox
 from math import *
 
 def getDummyBuild():

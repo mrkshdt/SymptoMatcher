@@ -7,9 +7,9 @@ Created on Sat Nov 14 14:16:59 2020
 
 import networkx as nx
 import matplotlib.pyplot as plt
-import osmnx as ox
+
 from math import *
-import Hackathon_dummyBuilding as dm
+from . import dummy_building as dm
 import imageio
 import os
 
@@ -30,7 +30,7 @@ def path(ziel):
     shortest_path = nx.shortest_path(G,10001,aim)
     filenames = []
     print(shortest_path)
-        
+      
     i = 0
     for node in shortest_path:
         x_blue = []
@@ -60,11 +60,11 @@ def path(ziel):
                 y_green.append(y1)
         fig = plt.figure(i)
         if level == 0:
-            img = plt.imread('EG.png')
+            img = plt.imread('./hospital/graph/EG.png')
         elif level == 1:
-            img = plt.imread('1OG.png')
+            img = plt.imread('./hospital/graph/1OG.png')
         else:
-            img = plt.imread('2OG.png')
+            img = plt.imread('./hospital/graph/2OG.png')
         #plt.scatter(x,y,zorder=1)
         plt.plot(x_blue,y_blue,'b-o')
         plt.plot(x_green,y_green,'go')
@@ -78,18 +78,15 @@ def path(ziel):
         i+=1
         
     
-    print(filenames)
-    
     images = []
     for filename in filenames:
+        print(filename)
         images.append(imageio.imread(filename))
         os.remove(filename)
-    imageio.mimsave('movie.gif', images, duration=5)
+    imageio.mimsave('route.gif', images, duration=5)
 
 
-
-path('Besuchraum09')
-
+    os.rename("./route.gif","./client/src/assets/route.gif")
 
 
 
