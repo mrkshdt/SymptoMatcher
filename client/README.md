@@ -1,86 +1,13 @@
-# Zum Laufen bringen
-Folgender Befehl installiert alle benoetigten packages
+# Getting Started
+Voraussetzung zur Verwendung der React App ist die Installation von node.js. Ist dies gegeben, müssen alle für das Projekt notwendigen node Module (aufgelistet in package.json) installiert werden indem lediglich folgender Befehl im client Verzeichnis über die Kommandozeile ausgeführt wird:
+
 `npm install`
 
-Anschliessend kann die App mit folgendem Befehl gestartet werden:
+Die React App ist anschließend Einsatzbereit und kann mit folgendem Befehl im Client Verzeichnis gestartet werden:
+
 `npm start`
 
-Es wird davon ausgegeangen, dass der flask proxy ansprechbar ist unter der Adresse http://localhost:5000
+Im Standardbrowser öffnet sich nun die React App.
 
-# Notizen - Aufsetzen ohne Geruest
-npx create-react-app client
-
-"proxy": "http//localhost:5000" in package.json hinzufuegen, hierdurch werden alle REST anfragen an diese proxy adresse angehaengt. Eine GET Anfrage an "/api/routing/" wird dann also uebersetzt in "http://localhost:5000/api/routing/"
-
-Anschliessend die notwendigen packages hinzuefuegen und Komponenten erstellen.
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Anmerkungen
+Die React App kommuniziert mit einem Flask API Server im Hintergrund, der parallel gestartet werden muss. Es wird davon ausgegeangen, dass dieser unter folgender (Standard-)Adresse ansprechbar ist http://localhost:5000 . Dies kann allerding durch Änderung der "proxy" Eigenschaft in package.json angepasst werden.
