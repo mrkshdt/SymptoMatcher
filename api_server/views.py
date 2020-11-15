@@ -1,4 +1,4 @@
-from hospital import app
+from api_server import app
 from flask import render_template, request
 from. import data_processing
 from .graph.visual import *

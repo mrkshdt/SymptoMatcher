@@ -61,11 +61,11 @@ def path(ziel):
                 y_green.append(y1)
         fig = plt.figure(i)
         if level == 0:
-            img = plt.imread(os.path.join('.', 'hospital', 'graph', 'EG.png'))
+            img = plt.imread(os.path.join('.', 'api_server', 'graph', 'EG.png'))
         elif level == 1:
-            img = plt.imread(os.path.join('.', 'hospital', 'graph', '1OG.png'))
+            img = plt.imread(os.path.join('.', 'api_server', 'graph', '1OG.png'))
         else:
-            img = plt.imread(os.path.join('.', 'hospital', 'graph', '2OG.png'))
+            img = plt.imread(os.path.join('.', 'api_server', 'graph', '2OG.png'))
         #plt.scatter(x,y,zorder=1)
         plt.plot(x_blue,y_blue,'b-o')
         plt.plot(x_green,y_green,'go')

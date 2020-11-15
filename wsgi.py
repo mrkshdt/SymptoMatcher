@@ -1,4 +1,4 @@
-from hospital import app as application
+from api_server import app as application
 
 
 if __name__ == '__main__':

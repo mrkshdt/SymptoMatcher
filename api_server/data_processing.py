@@ -75,7 +75,7 @@ def string_to_fb(user_string):
     """
     Checks for relevant terms of each fachbereich in the user_string
     """
-    with open ('./hospital/resources/terms.json', 'r') as f:
+    with open ('./api_server/resources/terms.json', 'r') as f:
         gazetteers = json.load(f, encoding='utf-8')
 
     user_tokens = normalize(user_string)

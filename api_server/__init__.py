@@ -2,4 +2,4 @@ from flask import Flask
 
 app = Flask(__name__)
 
-from hospital import views
+from api_server import views
