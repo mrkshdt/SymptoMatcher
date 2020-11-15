@@ -22,6 +22,7 @@ def get_route():
 
     # Get a ranking of appropriate fachbereiche
     ranking, fb_matching_details, mentioned_bereiche = data_processing.string_to_fb(user_string)
+    fun_fact = data_processing.generate_fun_fact(fb_matching_details)
 
     end_total = time.time()
     print("Total time until response: ", end_total - start_total)
@@ -30,6 +31,7 @@ def get_route():
 
     return json.dumps({
         'ranking': ranking,
-        'matching_details': fb_matching_details,
-        'mentioned_bereiche': mentioned_bereiche
+        'matchingDetails': fb_matching_details,
+        'mentionedBereiche': mentioned_bereiche,
+        'funFact': fun_fact
     })

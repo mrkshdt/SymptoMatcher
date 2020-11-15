@@ -5,6 +5,7 @@ import json
 import fasttext
 import difflib
 import spacy
+import random
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 MODEL_PATH = "../wiki.de.bin"
@@ -28,7 +29,8 @@ def normalize(user_string):
     new = nlp(tmp_sol)
     
     for i in new:
-        if i.pos_ == "ADJ" or i.pos_ == "VERB" or i.pos_ == "ADV":
+        #print(i.lemma_,i.pos_)
+        if i.pos_ == "ADJ" or i.pos_ == "ADV":
             pass
         else:
             sol.append(i)
@@ -88,9 +90,7 @@ def string_to_fb(user_string):
     for bereich in gazetteers['Fachbereiche']:
         fb_matched_terms[bereich['name']] = set()
         fb_matching_details[bereich['name']] = []
-        
-
-
+ 
         for token in user_tokens:
             token = str(token)
 
@@ -104,7 +104,7 @@ def string_to_fb(user_string):
 
             # Check whether the similarity of one of the tokens matches one of the words associated with the fachbereich
             for fb_term in bereich['associated_terms']:
-
+                #print("%s == %s ---> similarity of %1.3f"%(token, fb_term, similarity(token, fb_term)))
                 if similarity(token, fb_term) > thresh:
                     fb_matched_terms[bereich['name']].add(token)
                     fb_matching_details[bereich['name']].append({'user_token':token, 'fb_term':fb_term, 'score':float(similarity(token, fb_term))})
@@ -116,8 +116,8 @@ def string_to_fb(user_string):
 
     ranking = get_fb_ranking(fb_matched_terms)
 
-    for i in fb_matching_details:
-        print(fb_matching_details[i])
+    #for i in fb_matching_details:
+    #    print(fb_matching_details[i])
     
 
     return ranking, fb_matching_details, mentioned_bereiche
@@ -127,3 +127,28 @@ similarity = fasttext_similarity if useFastText else difflib_similarity
 
 #string_to_fb("Ich habe übertrieben harte Bauchschmerzen")
 
+def generate_fun_fact(fb_matching_details):
+    """
+    Generates funfacts / tooltips based on the matching results of the string_to_fb method
+    """
+    # List all the facts and the term that triggers them to be displayed to the user
+    facts = [
+        ('Atembeschwerden', 'Sie sind nicht alleine, im Durchschnitt kommen 156 Personen im Jahr mit Atembeschwerden in die Notaufnahme'),
+        ('Hautausschlag', 'Sie sind heute bereits die vierte Person mit Hautausschlag')
+    ]
+
+    matching_facts = []
+    for keyword, fact in facts:
+        for bereich_name in fb_matching_details.keys():
+            for match in fb_matching_details[bereich_name]:
+                #print("check %s == %s"%(keyword, match['fb_term']))
+                if keyword == match['fb_term']:
+                    matching_facts.append(fact)
+
+    # Just for testing determinism
+    random.seed(42)
+    if len(matching_facts) > 0:
+        random.shuffle(matching_facts)
+        return matching_facts[0]
+    else:
+        return '' 
