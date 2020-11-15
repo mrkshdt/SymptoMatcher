@@ -1,6 +1,8 @@
 from hospital import app
 from flask import render_template, request
 from. import data_processing
+from .graph.visual import *
+
 
 import time
 import json
@@ -23,6 +25,8 @@ def get_route():
 
     end_total = time.time()
     print("Total time until response: ", end_total - start_total)
+
+    path(ranking[0][0])
 
     return json.dumps({
         'ranking': ranking,
