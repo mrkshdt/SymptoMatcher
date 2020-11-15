@@ -29,7 +29,7 @@ function AppNavbar(props) {
                     <Collapse isOpen={isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink href="https://github.com/Neproxx">Github</NavLink>
+                                <NavLink href="https://gitlab.rhrk.uni-kl.de/hackathon2020">Gitlab</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>

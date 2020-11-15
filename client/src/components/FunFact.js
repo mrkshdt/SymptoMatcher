@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Jumbotron, Spinner} from 'reactstrap';
 import PropTypes from 'prop-types';
 
 function FunFact(props) {
     return <div>
                 <Jumbotron>
-                    <h2>Fun Fact</h2>
+                    <h2>Hinweis</h2>
                     <p >{props.text}</p>
                     <Spinner color="grey" />
                 </Jumbotron>

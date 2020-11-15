@@ -25,6 +25,11 @@ function NavigationPlotter(props) {
         reqImageGen(navData['userString']);
     };
 
+    function resetFunFact(){
+        // imageGenerated is supposed to stay true up to this point so it should not have to be set again, so this is a workaround due to a bug
+        setNavState({ ...navState, showFunFact: false, imageGenerated: true});
+    }
+
     function reqImageGen(uStr) {
         axios.get(`/api/routing?user_string=${uStr}`)
             .then((res) => {
@@ -43,10 +48,7 @@ function NavigationPlotter(props) {
                     funFact: funFact != null ? funFact : '',
                 });
                 // Set a timeout to turn off the funFact after 3 seconds
-                setTimeout(() => {
-                    setNavState({ ...navState, showFunFact: false });
-                    setNavData({ ...navData, funFact: '' });
-                }, 3000);
+                setTimeout(() => resetFunFact(), 3000);
             })
             .catch((err) => {
                 console.log(err);
@@ -58,7 +60,6 @@ function NavigationPlotter(props) {
             });
     }
 
-
     return (
 
         <div className="text-left">
@@ -67,7 +68,10 @@ function NavigationPlotter(props) {
 
                 {!navState['showFunFact'] && <div>
                     {navState['error'] && <span className="text-danger">Leider ist beim aktualisieren der Navigation ein Fehler aufgetreten</span>}
-                    {!navState['error'] && !navState['loading'] && <h3>Sie werden zu folgendem Ziel navigiert: <strong>{`${navData['destination']}`}</strong></h3>}
+                    {navState['imageGenerated'] ? 
+                        <h3>Sie werden zu folgendem Ziel navigiert: <strong>{`${navData['destination']}`}</strong></h3> :
+                        <h3>Bitte geben sie ihr Anliegen oder ihre Symptome ein</h3> 
+                    }
                     {!navState['imageGenerated'] &&
                         <form onSubmit={(event) => { event.preventDefault(); handleSubmit(); }}>
                             <Input type="text"
