@@ -1,3 +1,5 @@
+![SymptoMatcher](https://github.com/mrkshdt/SymptoMatcher/blob/master/SymptoMatcher.jpg?raw=true)
+
 # Genereller Aufbau
 Der Api Server übernimmt die Datenverarbeitung auf dessen Ergebnisse der React Client zugreift um mit dem User zu Interagieren.
 
